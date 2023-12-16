@@ -12,5 +12,3 @@ def is_pangram(s):
     if 0 not in counters:
         return True
     return False
-
-print(is_pangram("The quick, brown fox jumps over the lazy dog!"))
