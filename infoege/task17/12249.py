@@ -1,4 +1,4 @@
-file = open('C:/Users/Admin/source/repos/ege2024/infoege/task17/17_12249.txt').read()
+file = open('C:/Users/Admin/source/repos/ege2024/infoege/task17/12249.txt').read()
 file = file.split()
 
 max5 = 0
