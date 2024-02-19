@@ -1,28 +1,31 @@
-file = [int(x) for x in open('C:/Users/Admin/source/repos/ege2024/infoege/task17/12926.txt')]
+file = [int(x) for x in open('12926.txt')]
 
-m2 = -100
-for i in file:
-    if len(str(abs(i))) == 2 and i > m2:
-        m2 = i
-
-A = -100000
+A = -1 * 10 ** 34
 for i in range(len(file) - 3):
-    fst = file[i]
-    snd = file[i + 1]
-    trd = file[i + 2]
-    fth = file[i + 3]
-    last = abs(fst) % 10
-    if abs(snd) % 10 == last and abs(trd) % 10 == last and abs(fth) % 10 == last and fst + snd + trd + fth > A:
+    fst, snd, trd, fth = file[i], file[i + 1], file[i + 2], file[i + 3]
+
+    if fst + snd + trd + fth > A and len({abs(fst) % 10, abs(snd) % 10, abs(trd) % 10, abs(fth) % 10}) == 1:
         A = fst + snd + trd + fth
 
-count = 0
-for i in range(len(file) - 4):
-    fst = file[i]
-    snd = file[i + 1]
-    trd = file[i + 2]
-    fth = file[i + 3]
-    ffth = file[i + 4]
-    if fst < A + snd < A + trd < A + fth < A + ffth < A == 1 and (fst + snd + trd + fth + ffth) % m2 == 0:
-        count += 1
+maxTwo = -1 * 10 ** 34
+for k in file:
+    if len(str(abs(k))) == 2 and k > maxTwo:
+        maxTwo = k
 
-print(count)
+count = 0
+sums = []
+for j in range(len(file) - 4):
+    fst, snd, trd, fth, five = file[j], file[j + 1], file[j + 2], file[j + 3], file[j + 4]
+
+    countA = 0
+    for p in fst, snd, trd, fth, five:
+        if p < A:
+            countA += 1
+
+    if countA == 1:
+        if abs(fst + snd + trd + fth + five) % maxTwo == 0:
+            count += 1
+            sums.append(fst + snd + trd + fth + five)
+
+print(count, min(sums))
+# 24 -22671
