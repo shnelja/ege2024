@@ -5,5 +5,6 @@ def f(x, end):
         return 0
     else:
         return f(x + 2, end) + f(x * 3, end) + f(x * 2, end)
-    
+
+
 print(f(13, 45))

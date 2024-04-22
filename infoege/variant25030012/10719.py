@@ -1,6 +1,6 @@
 from time import sleep
 
-s = open('c:/Users/Admin/source/repos/ege2024/infoege/variant25030012/files/17_10719.txt').read()
+s = open('files/17_10719.txt').read()
 s = s.split()
 
 cnt = 0
