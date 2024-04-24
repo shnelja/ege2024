@@ -1,13 +1,10 @@
 from itertools import product
 
-digits = '012345678'
-
-answer = []
-for q in digits:
-    for x in product(digits, repeat=3):
-        line = ''.join(x)
-        if int(f'1{line}2322{q}2') % 2024 == 0:
-            answer.append(int(f'1{line}2322{q}2'))
-
-for x in sorted(answer):
-    print(x, x//2024)
+digits = '0123456789'
+for i in range(4):
+    for x in product(digits, repeat=i):
+        for q in digits:
+            line = ''.join(x)
+            mask = f'1{line}2322{q}2'
+            if int(mask) % 2024 == 0:
+                print(mask, int(mask) // 2024)
